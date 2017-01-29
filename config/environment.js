@@ -24,12 +24,20 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.HOST = "http://localhost:3000"
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
+
+  ENV.contentSecurityPolicy = {
+  'default-src': "'none'",
+  'frame-src': "*",
+  'script-src': "'self' 'unsafe-inline' *",
+  'connect-src': "'self' http://localhost:3000"
+  };
 
   if (environment === 'test') {
     // Testem prefers this...

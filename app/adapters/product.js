@@ -11,7 +11,7 @@ export default DS.RESTAdapter.extend({
     return {
       "Content-Type" : 'application/json'
     };
-  }).volatile()
+  }).volatile(),
 
 
   handleResponse:function(status, headers, payload, requestData){
